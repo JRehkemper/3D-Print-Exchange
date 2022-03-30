@@ -1,5 +1,5 @@
 <template>
-    <div>
-        <h1>3DPrintExchange</h1>    
-    </div>
+    <v-app-bar>
+        <h1>3D-Print-Exchange</h1>
+    </v-app-bar>
 </template>

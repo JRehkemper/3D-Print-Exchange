@@ -7,11 +7,15 @@ import { createVuetify } from 'vuetify'
 
 export default createVuetify({
   theme: {
+    options: {
+      customProperties: true,
+    },
     themes: {
       light: {
-        background: '#999'
+        background: '#ffffff',
       }
-    }
+    },
+    light: true,
   } 
 }
   // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides

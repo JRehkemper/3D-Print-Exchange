@@ -1,7 +1,7 @@
 <template>
-  <v-app>
+  <v-app class="v-theme--dark">
     <Header />
-    <v-main color="background">
+    <v-main class="info">
       <router-view/>
       <v-btn>test</v-btn>
     </v-main>
@@ -22,8 +22,8 @@ export default {
 </script>
 
 <style>
-/*:root {
-  --primary-color: #011f4b
-}*/
+#app {
+  background-color: #123a53;
+}
 
 </style>
