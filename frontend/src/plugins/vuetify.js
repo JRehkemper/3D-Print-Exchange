@@ -11,11 +11,11 @@ export default createVuetify({
       customProperties: true,
     },
     themes: {
-      light: {
-        background: '#ffffff',
+      dark: {
+        background: '#777777',
       }
     },
-    light: true,
+    dark: true,
   } 
 }
   // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
