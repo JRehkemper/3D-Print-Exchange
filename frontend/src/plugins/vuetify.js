@@ -1,26 +1,7 @@
-// Styles
-import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
+import Vue from 'vue';
+import Vuetify from 'vuetify/lib/framework';
 
-// Vuetify
-import { createVuetify } from 'vuetify'
+Vue.use(Vuetify);
 
-export default createVuetify({
-  icons: {
-    iconfont: 'mdi',
-  },
-  theme: {
-    options: {
-      customProperties: true,
-    },
-    themes: {
-      dark: {
-        primary: '#111111',
-        background: '#777777',
-      }
-    },
-    dark: true,
-  }
-}
-  // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
-)
+export default new Vuetify({
+});
