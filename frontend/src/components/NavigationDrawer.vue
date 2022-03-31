@@ -1,6 +1,6 @@
 <template>
-  <v-app id="id">
-    <v-navigation-drawer v-model="drawer" permanent>
+  <v-card height="400" width="256" class="mx-auto">
+    <v-navigation-drawer permanent>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6"> Application </v-list-item-title>
@@ -22,43 +22,20 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    
-    <v-app-bar clipped app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>3D Print-Exchange</v-toolbar-title>
-    </v-app-bar>
-
-    <v-main>
-      <v-container fluid> </v-container>
-    </v-main>
-
-    <v-footer app>
-      <span class="px-4">Hallo Footer</span>
-    </v-footer>
-  </v-app>
+  </v-card>
 </template>
-
 <script>
-export default {
-  name: "App",
-  components: {},
-  data() {
-    return {
-      drawer: null,
-      items: 
-        [
+  export default {
+    name: 'NavigationDrawer',
+    data () {
+      return {
+        items: [
           { title: 'Dashboard', icon: 'mdi-view-dashboard' },
           { title: 'Photos', icon: 'mdi-image' },
           { title: 'About', icon: 'mdi-help-box' },
         ],
-      
-    };
-  },
-};
+        right: null,
+      }
+    },
+  }
 </script>
-
-<style>
-#id {
-  min-height: 100vh;
-}
-</style>
