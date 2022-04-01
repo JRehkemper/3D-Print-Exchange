@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <NavSideBar />
     <v-main>
-      <v-content class="pa-6 mt-10">
+      <v-content class="pa-6">
         <router-view> </router-view>
       </v-content>
     </v-main>
@@ -20,3 +20,8 @@ export default {
   },
 };
 </script>
+<style>
+.v-btn {
+  border-radius: 1em;
+}
+</style>
