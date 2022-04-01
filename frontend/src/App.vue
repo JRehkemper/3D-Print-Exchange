@@ -1,9 +1,11 @@
 <template>
   <v-app id="inspire">
     <NavSideBar />
-    <v-content class="pa-6 mt-10">
-      <router-view> </router-view>
-    </v-content>
+    <v-main>
+      <v-content class="pa-6 mt-10">
+        <router-view> </router-view>
+      </v-content>
+    </v-main>
   </v-app>
 </template>
 

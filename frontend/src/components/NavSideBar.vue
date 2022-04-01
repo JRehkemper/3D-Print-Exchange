@@ -1,11 +1,11 @@
 <template>
     <nav>
-        <v-toolbar flat app>
+        <v-app-bar app flat>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>3D PrintExchange</v-toolbar-title>
-        </v-toolbar>
+        </v-app-bar>
 
-        <v-navigation-drawer v-model="drawer" clipped app>
+        <v-navigation-drawer v-model="drawer" fixed app clipped>
             <v-list-item>
                 <v-list-item-content>
                 <v-list-item-title class="text-h6"> Application </v-list-item-title>
