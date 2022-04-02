@@ -24,4 +24,8 @@ export default {
 .v-btn {
   border-radius: 1em;
 }
+
+.v-btn a {
+  text-decoration: none;
+}
 </style>

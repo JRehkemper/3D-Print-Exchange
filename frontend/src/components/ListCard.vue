@@ -1,5 +1,5 @@
 <template>
-  <v-card class="px-6 py-2" width="300">
+  <v-card hover class="px-6 py-2" width="300" href="/item">
     <v-card-title width="200" class="d-block pa-1">{{item.title}}</v-card-title>
     <v-img src="https://picsum.photos/300/" max-width="300" max-height="300">
       

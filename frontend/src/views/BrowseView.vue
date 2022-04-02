@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Browseview</h2>
+        <h2 class="ml-6">Browseview</h2>
         <div class="d-flex">
             <v-container v-for="item in items" :key="item.id" class="ma-1 d-flex" style="width: 300px;">
                 <ListCard :item="item"/>
@@ -22,7 +22,6 @@ export default {
                 {id: 3, title: "Test3", description: "Howdy Hier ist Test3", likes: 54645},
             ],
         }
-    }
-    
+    } 
 }
 </script>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BrowseView from '../views/BrowseView.vue'
+import ItemView from '../views/ItemView.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'browse',
     component: BrowseView
+  },
+  {
+    path: '/item',
+    name: 'item',
+    component: ItemView
   },
   {
     path: '/about',
