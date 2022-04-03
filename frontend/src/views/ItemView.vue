@@ -21,14 +21,14 @@
           <v-img :lazy-src="image" contain max-height="600px" max-width="1200px"></v-img>
         </v-carousel-item>
       </v-carousel>
-      <!--<v-expansion-panels accordion class="mt-4">
+      <v-expansion-panels accordion class="mt-4">
       <v-expansion-panel>
         <v-expansion-panel-header>View files in 3D</v-expansion-panel-header>
         <v-expansion-panel-content>
-          3D View comming
+          <ThreeDView />
         </v-expansion-panel-content>
       </v-expansion-panel>
-    </v-expansion-panels>-->
+    </v-expansion-panels>
       <v-card-text
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure non,
         quasi fuga officia nesciunt, veniam doloribus accusantium omnis ipsa
@@ -59,7 +59,11 @@
   </div>
 </template>
 <script>
+import ThreeDView from '../components/ThreeDView.vue'
 export default {
+  components: {
+    ThreeDView
+  },
   data() {
     return {
       images: [
