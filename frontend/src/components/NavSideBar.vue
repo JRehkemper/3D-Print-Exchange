@@ -32,6 +32,14 @@
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
+            <v-spacer></v-spacer>
+            <v-list style="position: absolute; bottom: 0px;">
+                <v-list-item>
+                    <v-list-item-content>
+                        Version 0.0.1
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
         </v-navigation-drawer>
     </nav>
 </template>
@@ -42,8 +50,10 @@ export default {
             drawer: null,
             items: [
                 { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/" },
-                { title: 'Photos', icon: 'mdi-image', link: '/about' },
-                { title: 'About', icon: 'mdi-help-box', link: '/about' },
+                { title: 'Trending', icon: 'mdi-trending-up', link: '/trending' },
+                { title: 'Best of all Time', icon: 'mdi-trophy-variant', link: '/bestofall' },
+                { title: 'Look at my print', icon: 'mdi-image-multiple', link: '/lookatmyprint' },
+                { title: 'About 3D PrintExchange', icon: 'mdi-help-box', link: '/about' },
             ]
         }
     },

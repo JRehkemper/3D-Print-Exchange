@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import BrowseView from '../views/BrowseView.vue'
+import HomeView from '../views/HomeView.vue'
 import ItemView from '../views/ItemView.vue'
+import ProfilePage from '../views/ProfilePage.vue'
+import TrendingView from '../views/TrendingView.vue'
+import BestOfAllView from '../views/BestOfAllView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'browse',
-    component: BrowseView
+    name: 'home',
+    component: HomeView
   },
   {
     path: '/item',
@@ -23,6 +26,21 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfilePage
+  },
+  {
+    path: '/trending',
+    name: 'trending',
+    component: TrendingView
+  },
+  {
+    path: '/bestofall',
+    name: 'bestofall',
+    component: BestOfAllView
   }
 ]
 
