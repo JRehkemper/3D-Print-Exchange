@@ -8,7 +8,7 @@
       {{ item.description }}
     </v-card-text>
     <v-card-actions class="ma-0 pa-0 pt-2 rowdiv">
-      <v-btn class="mx-1 my-4" style="width: 100px"><v-icon dark left> mdi-content-copy </v-icon>Link</v-btn>
+      <v-btn color="primary" class="mx-1 my-4" style="width: 100px"><v-icon  dark left> mdi-content-copy </v-icon>Link</v-btn>
       <v-btn class="mx-1 my-4" style="width: 100px" dark color="red">
         <v-icon dark left> mdi-heart </v-icon>{{ item.likes }}
       </v-btn>

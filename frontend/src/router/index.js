@@ -5,6 +5,7 @@ import ItemView from '../views/ItemView.vue'
 import ProfilePage from '../views/ProfilePage.vue'
 import TrendingView from '../views/TrendingView.vue'
 import BestOfAllView from '../views/BestOfAllView.vue'
+import UploadView from '../views/UploadView.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
     path: '/bestofall',
     name: 'bestofall',
     component: BestOfAllView
+  },
+  {
+    path: '/upload',
+    name: 'upload',
+    component: UploadView
   }
 ]
 

@@ -3,8 +3,8 @@
     </div>
 </template>
 <script>
-import * as THREE from 'three';
-import * as STLLoader from 'three-stl-loader'
+//import * as THREE from 'three';
+//import * as STLLoader from 'three-stl-loader'
 export default {
     data() {
         return {
@@ -12,7 +12,7 @@ export default {
         }
     },
     mounted() {
-        var divElement = document.getElementById("3dAnchor")
+        /*var divElement = document.getElementById("3dAnchor")
         console.log(divElement)
         console.log(divElement.parentElement.parentElement.parentElement)
         console.log(divElement.parentElement.parentElement.parentElement.clientWidth)
@@ -50,7 +50,7 @@ export default {
             scene.add(mesh)
         })
 
-        animate();
+        animate();*/
     }
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div id="itemwrapper">
-    <v-card class="pa-6" style="max-width: 1200px">
+    <v-card class="pa-6" style="width: 1500px">
         <div class="rowdiv">
         <h1>Irgendwas tolles für den Drucker</h1>
         <v-spacer></v-spacer>
@@ -16,7 +16,7 @@
         <v-spacer></v-spacer>
       </div>
       <v-divider class="my-8"></v-divider>
-      <v-carousel model="0">
+      <v-carousel model="0" style="display: flex; justify-content: center;">
         <v-carousel-item v-for="image in images" :key="image">
           <v-img :lazy-src="image" contain max-height="600px" max-width="1200px"></v-img>
         </v-carousel-item>
@@ -41,13 +41,13 @@
           <v-expansion-panel-content>
             <v-list>
                 <div v-for="file in files" :key="file">
-                    <div class="rowdiv" >
+                    <div style="display: flex; justify-content: space-between">
                         <v-list-item>{{ file }}</v-list-item>
-                        <v-btn icon class="mt-2"><v-icon>mdi-download</v-icon></v-btn>
+                        <v-btn icon class="mt-2" style="display: flex; align-items: flex-end;"><v-icon>mdi-download</v-icon></v-btn>
                     </div>
                     <v-divider></v-divider>
                 </div>
-              <div class="rowdiv">
+              <div style="display: flex; justify-content: space-between">
               <v-list-item>Download all as ZIP</v-list-item>
               <v-btn icon class="mt-2"><v-icon>mdi-download</v-icon></v-btn>
               </div>
