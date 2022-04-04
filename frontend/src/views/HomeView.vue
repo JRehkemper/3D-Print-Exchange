@@ -1,17 +1,27 @@
 <template>
   <div>
-    <h2 class="px-2">Hello and Welcome to</h2>
-    <h1 class="px-2">3D PrintExchange</h1>
-    <div class="rowdiv">
-    <v-card class="my-6" to="/trending">
-      <v-card-title>Trending<v-icon right>mdi-open-in-new</v-icon></v-card-title>
-      <v-card-text>See what is currently popular.</v-card-text>
-    </v-card>
-    <v-card class="my-6" to="/bestofall">
-      <v-card-title>Best of all Time<v-icon right>mdi-open-in-new</v-icon></v-card-title>
-      <v-card-text>See the most downloaded models of all time.</v-card-text>
-    </v-card>
+    <div id="HeroBanner">
+      <div>
+        <h5 class="px-2">Hello and Welcome to</h5>
+        <h1 class="px-2">3D PrintExchange</h1>
+      </div>
     </div>
+    <div class="rowdiv" id="featurePresentation">
+      <div style="max-width: 400px">
+        <h1>Free 3D Models</h1>
+        <p>Every Model uploaded to 3D PrintExchange is free to use for personal use. For commercial use see the included license or contact the owner of the file.</p>
+      </div>
+      <div style="max-width: 400px">
+        <h1>Community Driven</h1>
+        <p>3D PrintExchange is kept alive by its Community. That means you guys! No corperate organisations involved.<br>If you want to help, upload your own models, like the work of others and recomend this site your friends.</p>
+      </div>
+      <div style="max-width: 400px">
+        <h1>Open Source</h1>
+        <p>3D PrintExchange is an Open Source Project. That means, everyone can look into the source code, recomend changes or contribute their own code. The Codebase is hosted on GitHub.</p>
+      </div>
+    </div>
+    <hr>
+
   </div>
 </template>
 
@@ -34,3 +44,23 @@ export default {
   
 }
 </script>
+<style scoped>
+#HeroBanner {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 500px;
+  font-size: 1.8rem;
+  background-image: url('../assets/prusa-picture.jpg'), linear-gradient(hsla(204, 70%, 53%, 1), hsla(204, 50%, 40%, 1));
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#featurePresentation {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+</style>
