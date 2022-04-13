@@ -4,8 +4,9 @@
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>3D PrintExchange</v-toolbar-title>
             <v-spacer></v-spacer>
-            <div id="searchdiv" style="width:250px" class="px-2">
-                <v-text-field class="pt-6"  label="Search"></v-text-field>
+            
+            <div id="searchdiv">
+                <v-text-field style="transition: width 0.3s;" @focus="searchActive=true; searchInactive=false" @blur="searchActive=false; searchInactive=true" :class="[{searchExpand: searchActive}, {searchMini: searchInactive}]" class="pt-6" label="Search"></v-text-field>
             </div>
             <v-btn color="primary" class="mx-2">Login</v-btn>
             <v-btn dark class="mx-2">
@@ -50,6 +51,8 @@
 export default {
     data() {
         return {
+            searchActive: false,
+            searchInactive: true,
             drawer: null,
             items: [
                 { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/" },
@@ -58,11 +61,14 @@ export default {
                 { title: 'Look at my print', icon: 'mdi-image-multiple', link: '/lookatmyprint' },
                 { title: 'Upload new Model', icon: 'mdi-upload', link: '/upload' },
                 { title: 'About 3D PrintExchange', icon: 'mdi-help-box', link: '/about' },
-            ]
+            ],
+            
         }
     },
     methods: {
-
+        toogleSearch() {
+            this.searchActive != this.searchActive
+        }
     }
 }
 </script>
@@ -71,5 +77,23 @@ export default {
     color: #3498DB;
     opacity: 0.75;
     z-index: -500;
+}
+
+.searchExpand {
+    width:500px;
+}
+
+.searchMini {
+    width:250px;
+}
+
+@keyframes searchExpand {
+    0% {
+        width: 250px;
+    }
+    100% {
+        width: 500px;
+    }
+    
 }
 </style>

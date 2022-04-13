@@ -11,6 +11,7 @@
 
 <script>
 import NavSideBar from "./components/NavSideBar.vue";
+import axios from 'axios'
 export default {
   components: {
     NavSideBar,
@@ -18,6 +19,13 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    axios.get("https://auth.jrehkemper.de/api/sessioninfo", {credentials: 'same-origin'})
+    .then((response) => {
+      console.log("response: "+response.data)
+    })
+    .catch( err => { console.log("error "+err)})
+  }
 };
 </script>
 <style>
