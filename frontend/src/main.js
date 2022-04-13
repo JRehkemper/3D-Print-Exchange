@@ -3,8 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
 import VueCookies from 'vue-cookies'
-//import axios from 'axios'
-//import VueAxios from 'vue-axios'
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -12,8 +11,6 @@ new Vue({
   vuetify,
   router,
   VueCookies,
-  //VueAxios,
-  //axios,
- 
+  store,
   render: h => h(App)
 }).$mount('#app')

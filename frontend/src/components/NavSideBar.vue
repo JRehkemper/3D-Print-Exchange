@@ -8,10 +8,10 @@
             <div id="searchdiv">
                 <v-text-field style="transition: width 0.3s;" @focus="searchActive=true; searchInactive=false" @blur="searchActive=false; searchInactive=true" :class="[{searchExpand: searchActive}, {searchMini: searchInactive}]" class="pt-6" label="Search"></v-text-field>
             </div>
-            <v-btn color="primary" class="mx-2">Login</v-btn>
-            <v-btn dark class="mx-2">
+            <v-btn color="primary" class="mx-2" href="https://auth.jrehkemper.de">Login</v-btn>
+            <v-btn dark class="mx-2" href="https://github.com/JadBlackstone/3D-Print-Exchange">
                 <v-icon dark left> mdi-github </v-icon>
-                <a href="https://github.com/JadBlackstone/3D-Print-Exchange" style="color: white;">GitHub</a>
+                <a style="color: white;">GitHub</a>
             </v-btn>
         </v-app-bar>
 
@@ -20,7 +20,11 @@
                 <v-list-item-avatar>
                     <v-icon>mdi-account</v-icon>
                 </v-list-item-avatar>
-                <v-list-item-title class="text-h6" style="color: white;">Hello Stranger</v-list-item-title>
+                <v-list-item-title class="text-h6" style="color: white;">Hello {{ $store.state.username }}</v-list-item-title>
+                
+            </v-list-item>
+            <v-list-item>
+                <v-list-item-subtitle style="color: white; width: 100%;">{{ $store.state.userID }}</v-list-item-subtitle>
             </v-list-item>
             <v-divider></v-divider>
             <v-list dense nav>

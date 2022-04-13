@@ -20,9 +20,9 @@ export default {
     return {};
   },
   mounted() {
-    axios.get("https://auth.jrehkemper.de/api/sessioninfo", {credentials: 'same-origin'})
+    axios.get("https://auth.jrehkemper.de/api/sessioninfo", {withCredentials: true})
     .then((response) => {
-      console.log("response: "+response.data)
+      this.$store.commit('setUserID',response.data.userId)
     })
     .catch( err => { console.log("error "+err)})
   }
