@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import publicPath from '../../vue.config'
 import HomeView from '../views/HomeView.vue'
 import ItemView from '../views/ItemView.vue'
 import ProfilePage from '../views/ProfilePage.vue'
@@ -53,7 +52,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: publicPath,
+  base: process.env.BASE_URL,
   routes
 })
 
