@@ -15,6 +15,7 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -23,7 +24,15 @@ export default {
     },
     methods: {
         changeUsername(e) {
-            this.$store.commit('setUsername', e)
+            axios.post(this.$store.state.api+"/setUsername", {
+                userID: this.$store.state.userID,
+                userName: e
+            })
+            .then((response) => {
+                //console.log(response)
+                this.$store.commit('setUsername', response.data.username)
+            })
+            
         },
         saveMethod() {
             this.savePopup=true 
