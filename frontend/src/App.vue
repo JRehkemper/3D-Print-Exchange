@@ -24,7 +24,11 @@ export default {
     .then((response) => {
       this.$store.commit('setUserID',response.data.userId)
     })
-    .catch( err => { console.log("error "+err)})
+    .catch( err => { 
+      console.log("error "+err)
+      var username = "Stranger"
+      this.$store.commit('setUsername', username)
+    })
   }
 };
 </script>
