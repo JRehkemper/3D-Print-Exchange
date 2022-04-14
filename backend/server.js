@@ -30,6 +30,7 @@ app.get('/', (req , res) => {
   
 app.listen(3000, () => {
     console.log("server is running on port 3000");
+    console.log("DB Credentials "+process.env.DB_USER+" - "+process.env.DBPassword)
 })
 
 app.post('/getUsername', (req, res) => {
