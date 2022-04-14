@@ -59,7 +59,7 @@ export default {
             searchInactive: true,
             drawer: null,
             items: [
-                { title: 'Dashboard', icon: 'mdi-view-dashboard', link: "/" },
+                { title: 'Home', icon: 'mdi-view-dashboard', link: "/" },
                 { title: 'Trending', icon: 'mdi-trending-up', link: '/trending' },
                 { title: 'Best of all Time', icon: 'mdi-trophy-variant', link: '/bestofall' },
                 { title: 'Look at my print', icon: 'mdi-image-multiple', link: '/lookatmyprint' },

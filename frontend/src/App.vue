@@ -17,15 +17,24 @@ export default {
     NavSideBar,
   },
   data() {
-    return {};
+    return {
+    };
   },
   mounted() {
     axios.get("https://auth.jrehkemper.de/api/sessioninfo", {withCredentials: true})
     .then((response) => {
+      this.$store.commit('logIn')
       this.$store.commit('setUserID',response.data.userId)
+      axios.post(this.$store.state.api+"/getUsername", {
+        userID: this.$store.state.userID
+      }).then((response) => {
+        this.$store.commit('setUsername', response.data.userName)
+        console.log(response.data.userName)
+      })
     })
     .catch( err => { 
       console.log("error "+err)
+      this.$store.commit('logOut')
       var username = "Stranger"
       this.$store.commit('setUsername', username)
     })
