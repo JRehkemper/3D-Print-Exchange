@@ -5,6 +5,8 @@ const cors = require('cors')
 require('dotenv').config()
 const mysql = require('mysql2')
 const axios = require('axios')
+const multer = require('multer')
+const upload = multer({dest: 'uploads/'})
 
 app.use(morgan('combined'))
 app.use(express.json())
@@ -30,7 +32,7 @@ app.get('/', (req , res) => {
   
 app.listen(3000, () => {
     console.log("server is running on port 3000");
-    console.log("DB Credentials "+process.env.DB_USER+" - "+process.env.DBPassword)
+    //console.log("DB Credentials "+process.env.DB_USER+" - "+process.env.DBPassword)
 })
 
 app.post('/getUsername', (req, res) => {
@@ -70,5 +72,20 @@ app.post('/createUser', (req, res) => {
     function(err, results) {
         //console.log(results)
     })
+    res.send("done")
+})
+
+app.post('/uploadItem', upload.single('stl'), (req, res, next) => {
+    console.log(req.body)
+    console.log(req.file)
+    var lastItemID = null
+    var title = req.body["title"]
+    var description = req.body["description"]
+    var tags = req.body["tags"]
+    conn.query('SELECT itemID FROM items ORDER BY itemID DESC LIMIT 1', [], 
+    function(err, results) {
+        lastItemID = results[0]["itemID"]
+    })
+    //conn.query('INSERT INTO items')
     res.send("done")
 })
