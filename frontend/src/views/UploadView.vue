@@ -11,7 +11,7 @@
                     <v-text-field :rules="rules" v-model="formTitle" label="Title"></v-text-field>
                     <v-textarea :rules="rules" v-model="formDescription" label="Description" hint="What is your model exactly?"></v-textarea>
                     <v-file-input v-model="formStl" multiple label="Upload your STL-File"></v-file-input>
-                    <v-file-input multiple label="Upload Galleryimages" hint="This will be displayed in search"></v-file-input>
+                    <v-file-input v-model="formGalleryImage" label="Upload Galleryimages" hint="This will be displayed in search"></v-file-input>
                     <v-file-input multiple label="Upload Images (optional)" hint="This is optional"></v-file-input>
                     <v-text-field v-model="formTags" label="Tags for search (separated by Comma)" hint="Add Tags that are not in your Title or Description."></v-text-field>
                     <v-btn color="primary" class="mt-3" v-if="!this.loginAlarm" @click="uploadModel">Upload your Model</v-btn>
@@ -45,19 +45,33 @@ export default {
     methods: {
         uploadModel() {
             //if(this.formTitle == '' || this.formDescription == '' || !this.formStl || !this.formGalleryImage) { return }
-            console.log(this.formStl[0])
+            console.log(this.formGalleryImage.name)
             var bodyFormData = new FormData()
-            bodyFormData.append('title', this.formTitle)
-            bodyFormData.append('description', this.formDescription)
-            bodyFormData.append('tags', this.formTags)
-            bodyFormData.append('stl', this.formStl)
-            //bodyFormData.append('galleryimage', this.formGalleryImage)
-            axios({
-                method: "post", url: this.$store.state.api+"/uploadItem", headers: {"Content-Type":"multipart/form-data"},
-                data: bodyFormData
-            }).then(function(response) {
-                console.log(response)
-            })
+            var lastItemID = null
+            axios.get(this.$store.state.api+"/getLastItemID")
+                .then((response) => {
+                    lastItemID = response.data.lastItemID
+                    console.log(lastItemID)
+                    var itemID = lastItemID + 1
+                    bodyFormData.append('itemID', itemID)
+                    bodyFormData.append('title', this.formTitle)
+                    bodyFormData.append('description', this.formDescription)
+                    bodyFormData.append('galleryimage', this.formGalleryImage.name)
+                    bodyFormData.append('tags', this.formTags)
+                    if(this.formStl > 0) {
+                        for(var i = 0; i < this.formStl.length; i++) {
+                            bodyFormData.append('stl', this.formStl[i], this.formStl[i].name)
+                        }
+                    }
+                    axios({
+                        method: "post", url: this.$store.state.api+"/uploadItem", headers: {"Content-Type":"multipart/form-data"},
+                        data: bodyFormData
+                    }).then(function(response) {
+                        console.log(response)
+                    })
+                })
+            
+            
         }
     }
 }

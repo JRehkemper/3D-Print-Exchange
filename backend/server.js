@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs')
 const morgan = require('morgan')
 const app = express();
 const cors = require('cors')
@@ -6,7 +7,17 @@ require('dotenv').config()
 const mysql = require('mysql2')
 const axios = require('axios')
 const multer = require('multer')
-const upload = multer({dest: 'uploads/'})
+var storage = multer.diskStorage({   
+    destination: function(req, file, cb) { 
+        //cb(null, './uploads');    
+        fs.mkdir('./uploads/'+req.body['itemID']+'/', (err) => {})
+        cb(null, './uploads/'+req.body['itemID']+'/');    
+    }, 
+    filename: function (req, file, cb) { 
+       cb(null , file.originalname);   
+    }
+ });
+const upload = multer({storage: storage})
 
 app.use(morgan('combined'))
 app.use(express.json())
@@ -37,7 +48,7 @@ app.listen(3000, () => {
 
 app.post('/getUsername', (req, res) => {
     //console.log(req.body)
-    var userID = req.body["userID"]
+    var userID = req.body["itemID"]
     conn.query('SELECT userName from users WHERE userID = ?', [userID], 
     function(err, results) {
         //console.log(results[0]["userName"])
@@ -75,17 +86,28 @@ app.post('/createUser', (req, res) => {
     res.send("done")
 })
 
-app.post('/uploadItem', upload.single('stl'), (req, res, next) => {
-    console.log(req.body)
-    console.log(req.file)
+app.get('/getLastItemID', (req, res) => {
+    var lastItemID = null
+    conn.query('SELECT itemID FROM items ORDER BY itemID DESC LIMIT 1', [], 
+    function(err, results) {
+        if (err) res.json({response: "500 - error"})
+        lastItemID = results[0]["itemID"]
+        res.json({'lastItemID': lastItemID})
+    })
+})
+
+app.post('/uploadItem', upload.any(), (req, res) => {
+    console.log(req.files)
     var lastItemID = null
     var title = req.body["title"]
     var description = req.body["description"]
+    var galleryimage = req.body["galleryimage"]
     var tags = req.body["tags"]
-    conn.query('SELECT itemID FROM items ORDER BY itemID DESC LIMIT 1', [], 
+    console.log(galleryimage)
+    conn.query('INSERT INTO items(Title, Description, Galleryimage, userID) VALUES(?, ?, ?, ?);', [title, description, galleryimage, tags], 
     function(err, results) {
-        lastItemID = results[0]["itemID"]
+        console.log(err)
+        console.log(results)
     })
-    //conn.query('INSERT INTO items')
     res.send("done")
 })
