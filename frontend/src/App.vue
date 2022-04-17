@@ -21,6 +21,7 @@ export default {
     };
   },
   mounted() {
+    this.$store.commit('setAPI', process.env.VUE_APP_API_URL)
     axios.get("https://auth.jrehkemper.de/api/sessioninfo", {withCredentials: true})
     .then((response) => {
       this.$store.commit('logIn')

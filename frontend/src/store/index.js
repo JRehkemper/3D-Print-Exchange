@@ -24,6 +24,9 @@ export default new Vuex.Store({
     },
     setUserID(state, userID) {
       state.userID = userID
+    },
+    setAPI(state, url) {
+      state.api = url
     }
   },
   actions: {
